@@ -1,0 +1,53 @@
+<div>
+    Tech Library Dashboard
+</div>
+<div class="row">
+    <label>Title</label>&nbsp;
+    <input type="text" [(ngModel)]="title">
+</div>
+&nbsp;
+<div class="row">
+    <label>Description</label>&nbsp;
+    <input type="text" [(ngModel)]="description">
+</div>
+&nbsp;
+<div>
+    <button class="button" (click)="onSearchClick()">Search</button>
+</div>
+
+&nbsp;
+<div>
+    <table id="book">
+        <thead>
+            <tr>
+                <th>Book Id</th>
+                <th>Book Image</th>
+                <th>Book Title</th>
+                <th>ISBN</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of books; let x = index">
+                <td>{{b.bookId}}</td>
+                <td>
+                    <img src="{{b.thumbnailUrl}}" style="max-width: 170px; max-height: 50px;">
+                </td>
+                <td>{{b.title}}</td>
+                <td>{{b.isbn}}</td>
+                <td>{{b.descr}}</td>
+                <td>
+                    <button class="button" (click)="onViewOrEditClick(b.bookId)">View / Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button class="button" (click)="onPageClick(1)">Page 1</button>
+        <button class="button" *ngIf="lastPageNumber >= 2" (click)="onPageClick(2)">Page 2</button>
+        <button class="button" *ngIf="lastPageNumber >= 3" (click)="onPageClick(3)">Page 3</button>
+        <button class="button" (click)="onPreviousPageClick()">Previous</button>
+        <button class="button" (click)="onNextPageClick()">Next</button>
+        <button class="button" (click)="onLastPageClick()">Last</button>
+    </div>
+</div>

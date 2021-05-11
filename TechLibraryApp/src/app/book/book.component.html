@@ -1,0 +1,25 @@
+<div>
+    Book component
+    <button class="button" (click)="onDashboardClick()">Link To Dashboard</button>
+</div>
+<table>
+    <tr>
+        <label>Title</label>&nbsp;
+        <input type="text" [(ngModel)]="bookData.title" style="width: 300px;">
+    </tr>
+    <tr>
+        <label>ISBN</label>&nbsp;
+        <input type="text" [disabled] [(ngModel)]="bookData.isbn" style="width: 300px;">
+    </tr>
+    <tr>
+        <label>Published Date</label>&nbsp;
+        <input type="text" [(ngModel)]="bookData.publishedDate">
+    </tr>
+    <tr>
+        <label>Description</label>&nbsp;
+        <textarea type="text" [(ngModel)]="bookData.descr"></textarea>
+    </tr>
+</table>
+<div>
+    <button class="button" (click)="onEditBookClick()">Save Changes</button>
+</div>
